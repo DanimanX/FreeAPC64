@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreeAPC64 v0.0.1 — Custom Firmware &amp; Web Project / Synth CC Editor</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="/assets/apc64-logo.png" alt="APC64" class="brand-logo" />
+      <div class="brand-text">
+        <div class="brand-title">
+          FreeAPC64 <span class="badge-version">v0.0.1</span>
+          <span class="badge-unlocked">Universal DAW &amp; Synth Unlocked</span>
+        </div>
+        <div class="brand-subtitle">
+          Bitwig Studio &bull; Reaper &bull; Ableton &bull; Hardware/VST Synth MIDI CC &amp; Project Editor
+        </div>
+      </div>
+    </div>
+
+    <div class="midi-bar">
+      <div class="midi-group">
+        <label for="midi-in-select">MIDI IN (USB):</label>
+        <select id="midi-in-select">
+          <option value="">(Simulador / Sin puerto USB)</option>
+        </select>
+      </div>
+      <div class="midi-group">
+        <label for="midi-out-select">MIDI OUT (USB):</label>
+        <select id="midi-out-select">
+          <option value="">(Simulador / Sin puerto USB)</option>
+        </select>
+      </div>
+      <button id="btn-connect-midi" class="btn btn-secondary" title="Conectar WebMIDI (SysEx)">
+        Conectar WebMIDI
+      </button>
+      <span id="midi-status-pill" class="status-pill status-sim">Modo Simulador + Audio Web</span>
+    </div>
+
+    <div class="actions-bar">
+      <div class="midi-group">
+        <label for="preset-select">Plantilla DAW/Synth:</label>
+        <select id="preset-select">
+          <option value="synth_master">Synth Master CC (Cutoff/ADSR/CV)</option>
+          <option value="bitwig_studio">Bitwig Studio (8 Remotes + Grid)</option>
+          <option value="reaper_daw">Reaper DAW (Mixer + ReaFX CC)</option>
+          <option value="hybrid_split">Split: 4x4 Drums + Bass + Lead</option>
+        </select>
+      </div>
+      <div class="midi-group">
+        <label for="slot-select">Slot:</label>
+        <select id="slot-select">
+          <option value="0">Slot 0 (RAM Directo)</option>
+          <option value="1" selected>Proyecto 1</option>
+          <option value="2">Proyecto 2</option>
+          <option value="3">Proyecto 3</option>
+          <option value="4">Proyecto 4</option>
+          <option value="5">Proyecto 5</option>
+          <option value="6">Proyecto 6</option>
+          <option value="7">Proyecto 7</option>
+          <option value="8">Proyecto 8</option>
+        </select>
+      </div>
+      <button id="btn-send-project" class="btn btn-primary">Enviar a APC64 (SysEx)</button>
+      <button id="btn-request-project" class="btn btn-secondary">Leer de APC64</button>
+      <button id="btn-export-project" class="btn btn-secondary">Exportar .apc64</button>
+      <label class="btn btn-secondary file-label">
+        Importar .apc64
+        <input type="file" id="file-import-project" accept=".json,.apc64,.syx" hidden />
+      </label>
+    </div>
+  </header>
+
+  <nav class="tabs-nav">
+    <button class="tab-btn active" data-tab="tab-surface">
+      1. Superficie APC64 (64 Pads RGB &amp; 8 Touchstrips CC)
+    </button>
+    <button class="tab-btn" data-tab="tab-synth">
+      2. Sintetizador &amp; Rack de Parámetros MIDI CC
+    </button>
+    <button class="tab-btn" data-tab="tab-tracks">
+      3. Step Sequencer &amp; 8 Pistas Standalone
+    </button>
+    <button class="tab-btn" data-tab="tab-global">
+      4. Ajustes Globales, Reloj MIDI &amp; 8 Salidas CV/Gate
+    </button>
+    <button class="tab-btn" data-tab="tab-firmware">
+      5. Instalador Custom Firmware &amp; Restauración Original
+    </button>
+  </nav>
+
+  <main class="workspace">
+    <!-- TAB 1: APC64 HARDWARE SURFACE -->
+    <section id="tab-surface" class="tab-panel active">
+      <div class="surface-layout">
+        <!-- Left/Center: 8x8 Pad Grid + 8 Touchstrips -->
+        <div class="hardware-unit">
+          <div class="hw-top-row">
+            <!-- OLED Screen & Mode Buttons -->
+            <div class="oled-module">
+              <div class="oled-header">
+                <span>PANTALLA OLED APC64 (SysEx 0x10 / 0x1A)</span>
+                <label class="audio-toggle">
+                  <input type="checkbox" id="chk-webaudio" checked />
+                  <span>Sintetizador WebAudio Interno</span>
+                </label>
+              </div>
+              <canvas id="oled-canvas" width="256" height="128"></canvas>
+              <div class="hw-mode-buttons">
+                <button class="hw-mode-btn active" data-uimode="2">SESSION (DAW)</button>
+                <button class="hw-mode-btn" data-uimode="0">DEVICE</button>
+                <button class="hw-mode-btn" data-uimode="1">MIXER</button>
+                <button class="hw-mode-btn" data-uimode="8">CUSTOM</button>
+                <button class="hw-mode-btn" data-uimode="3">NOTE</button>
+                <button class="hw-mode-btn" data-uimode="6">CHORD</button>
+                <button class="hw-mode-btn" data-uimode="9">STEP SEQ</button>
+              </div>
+            </div>
+
+            <!-- Transport & Scale Quick Generator -->
+            <div class="scale-quick-panel">
+              <h3>Generador de Escala / Layout para los 64 Pads</h3>
+              <div class="form-grid-3">
+                <div>
+                  <label>Nota Raíz (Root):</label>
+                  <select id="scale-root">
+                    <option value="0">C</option>
+                    <option value="1">C#</option>
+                    <option value="2">D</option>
+                    <option value="3">D#</option>
+                    <option value="4">E</option>
+                    <option value="5">F</option>
+                    <option value="6">F#</option>
+                    <option value="7">G</option>
+                    <option value="8">G#</option>
+                    <option value="9">A</option>
+                    <option value="10">A#</option>
+                    <option value="11">B</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Escala Musical:</label>
+                  <select id="scale-type">
+                    <option value="chromatic">Cromática (12 tonos)</option>
+                    <option value="minor" selected>Menor Natural (Aeolian)</option>
+                    <option value="major">Mayor (Ionian)</option>
+                    <option value="dorian">Dórico (Dorian)</option>
+                    <option value="phrygian">Frigio (Phrygian)</option>
+                    <option value="lydian">Lidio (Lydian)</option>
+                    <option value="mixolydian">Mixolidio</option>
+                    <option value="harmonic_minor">Menor Armónica</option>
+                    <option value="pentatonic_minor">Pentatónica Menor</option>
+                    <option value="pentatonic_major">Pentatónica Mayor</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Octava Base / Intervalo:</label>
+                  <div class="inline-pair">
+                    <input type="number" id="scale-octave" min="0" max="6" value="2" />
+                    <select id="scale-interval">
+                      <option value="5" selected>4tas (Isométrico)</option>
+                      <option value="8">Secuencial (8 col)</option>
+                      <option value="3">3ras</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="scale-actions">
+                <button id="btn-apply-scale" class="btn btn-primary">Aplicar Escala a 64 Pads</button>
+                <div class="transport-bar">
+                  <button id="btn-transport-play" class="btn-transport play">PLAY (0x5B)</button>
+                  <button id="btn-transport-stop" class="btn-transport stop">STOP (0x5C)</button>
+                  <button id="btn-transport-rec" class="btn-transport rec">REC (0x5D)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8x8 RGB Pad Matrix -->
+          <div class="pad-matrix-header">
+            <span>MATRIZ DE 64 PADS RGB CON POLY AFTERTOUCH (Haz clic para tocar / configurar)</span>
+            <span id="last-midi-monitor" class="midi-monitor-badge">MIDI: Listo</span>
+          </div>
+          <div id="pad-grid" class="pad-grid"></div>
+
+          <!-- 8 RGB Touchstrip Faders -->
+          <div class="touchstrips-header">
+            <span>8 TOUCHSTRIP FADERS CON LED RGB — MIDI CC DESBLOQUEADO EN TODOS LOS MODOS (DAW &amp; CUSTOM)</span>
+          </div>
+          <div id="fader-strip-container" class="fader-strip-container"></div>
+        </div>
+
+        <!-- Right Sidebar: Pad Inspector + Touchstrip Inspector + OLED Line Editor -->
+        <aside class="inspector-sidebar">
+          <!-- Selected Pad Inspector -->
+          <div class="card">
+            <div class="card-header">
+              <h3 id="pad-inspector-title">Inspector: Pad #1 (Fila 1, Col 1)</h3>
+              <button id="btn-copy-pad-all" class="btn btn-xs">Copiar Canal/Ruta a 64 Pads</button>
+            </div>
+            <div class="form-grid-2">
+              <div>
+                <label>Nota Musical:</label>
+                <select id="pad-note">
+                  <option value="0">C</option>
+                  <option value="1">C#</option>
+                  <option value="2">D</option>
+                  <option value="3">D#</option>
+                  <option value="4">E</option>
+                  <option value="5">F</option>
+                  <option value="6">F#</option>
+                  <option value="7">G</option>
+                  <option value="8">G#</option>
+                  <option value="9">A</option>
+                  <option value="10">A#</option>
+                  <option value="11">B</option>
+                </select>
+              </div>
+              <div>
+                <label>Octava (0–8):</label>
+                <input type="number" id="pad-octave" min="0" max="8" value="3" />
+              </div>
+              <div>
+                <label>Canal MIDI (1–16):</label>
+                <input type="number" id="pad-channel" min="1" max="16" value="1" />
+              </div>
+              <div>
+                <label>Poly Aftertouch:</label>
+                <select id="pad-poly-at">
+                  <option value="1">Activado (On)</option>
+                  <option value="0">Desactivado (Off)</option>
+                </select>
+              </div>
+              <div>
+                <label>Color LED Reposo (Off):</label>
+                <input type="color" id="pad-color-off" value="#002d5f" />
+              </div>
+              <div>
+                <label>Color LED Pulsado (On):</label>
+                <input type="color" id="pad-color-on" value="#00ff96" />
+              </div>
+            </div>
+            <div class="routing-row">
+              <label><input type="checkbox" id="pad-usb" checked /> Enviar a USB (DAW)</label>
+              <label><input type="checkbox" id="pad-midi" checked /> Enviar a MIDI DIN</label>
+              <label><input type="checkbox" id="pad-cv" /> Enviar a CV/Gate</label>
+            </div>
+            <div id="palette-swatches" class="palette-swatches"></div>
+          </div>
+
+          <!-- Selected Touchstrip Fader Inspector -->
+          <div class="card">
+            <div class="card-header">
+              <h3 id="fader-inspector-title">Inspector: Touchstrip Fader #1</h3>
+            </div>
+            <div class="form-grid-2">
+              <div class="full-span">
+                <label>Nombre del Parámetro / Sintetizador:</label>
+                <input type="text" id="fader-label" maxlength="24" value="Filter Cutoff" />
+              </div>
+              <div>
+                <label>Modo MIDI CC:</label>
+                <select id="fader-cc-mode">
+                  <option value="0">Desactivado (Off)</option>
+                  <option value="1">Single CC (CC 1)</option>
+                  <option value="2">Dual CC (CC 1 + CC 2)</option>
+                </select>
+              </div>
+              <div>
+                <label>Estilo LED Touchstrip:</label>
+                <select id="fader-style">
+                  <option value="0">Volumen / Filtro (Fill)</option>
+                  <option value="1">Paneo / Bipolar (Centro)</option>
+                </select>
+              </div>
+              <div>
+                <label>Número CC 1 (0–127):</label>
+                <input type="number" id="fader-cc1" min="0" max="127" value="74" />
+              </div>
+              <div>
+                <label>Número CC 2 (0–127):</label>
+                <input type="number" id="fader-cc2" min="0" max="127" value="16" />
+              </div>
+              <div>
+                <label>Canal MIDI (1–16):</label>
+                <input type="number" id="fader-channel" min="1" max="16" value="1" />
+              </div>
+              <div>
+                <label>Nota al Tocar Fader:</label>
+                <select id="fader-note">
+                  <option value="12">Off (Solo CC)</option>
+                  <option value="0">C</option>
+                  <option value="1">C#</option>
+                  <option value="2">D</option>
+                  <option value="3">D#</option>
+                  <option value="4">E</option>
+                  <option value="5">F</option>
+                  <option value="6">F#</option>
+                  <option value="7">G</option>
+                  <option value="8">G#</option>
+                  <option value="9">A</option>
+                  <option value="10">A#</option>
+                  <option value="11">B</option>
+                </select>
+              </div>
+              <div>
+                <label>Color Barra LED:</label>
+                <input type="color" id="fader-color-bar" value="#00dcff" />
+              </div>
+              <div>
+                <label>Color Punta LED (Tip):</label>
+                <input type="color" id="fader-color-tip" value="#ffffff" />
+              </div>
+            </div>
+            <div class="routing-row">
+              <label><input type="checkbox" id="fader-usb" checked /> USB (DAW)</label>
+              <label><input type="checkbox" id="fader-midi" checked /> MIDI DIN</label>
+              <label><input type="checkbox" id="fader-cv" /> CV Out</label>
+            </div>
+          </div>
+
+          <!-- OLED Text Sender -->
+          <div class="card">
+            <div class="card-header">
+              <h3>Texto en Pantalla OLED Hardware (SysEx 0x10)</h3>
+              <button id="btn-send-oled" class="btn btn-xs btn-primary">Enviar a OLED</button>
+            </div>
+            <div class="oled-inputs-grid">
+              <input type="text" class="oled-line-input" data-line="0" maxlength="24" placeholder="Línea 1" />
+              <input type="text" class="oled-line-input" data-line="1" maxlength="24" placeholder="Línea 2" />
+              <input type="text" class="oled-line-input" data-line="2" maxlength="24" placeholder="Línea 3" />
+              <input type="text" class="oled-line-input" data-line="3" maxlength="24" placeholder="Línea 4" />
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- TAB 2: SYNTHESIZER & MIDI CC PARAMETER RACK -->
+    <section id="tab-synth" class="tab-panel">
+      <div class="section-header">
+        <div>
+          <h2>Rack de Parámetros de Sintetizador &amp; Controlador MIDI CC Universal</h2>
+          <p>
+            Modifica en tiempo real los parámetros del sintetizador interno WebAudio y transmite mensajes
+            <strong>MIDI CC</strong> por USB hacia <strong>Bitwig Studio, Reaper, Vital, Serum, Diva</strong> o
+            sintetizadores hardware conectados.
+          </p>
+        </div>
+        <div class="synth-toolbar">
+          <label>Forma de Onda Synth:</label>
+          <select id="synth-waveform">
+            <option value="sawtooth" selected>Sawtooth (Analógico)</option>
+            <option value="square">Square / PWM</option>
+            <option value="triangle">Triangle / Sub</option>
+            <option value="sine">Sine / FM</option>
+          </select>
+          <button id="btn-test-chord" class="btn btn-primary">Tocar Acorde de Prueba (C Minor 9)</button>
+        </div>
+      </div>
+
+      <div id="synth-cc-rack" class="synth-rack-grid"></div>
+    </section>
+
+    <!-- TAB 3: STANDALONE STEP SEQUENCER & 8 TRACKS -->
+    <section id="tab-tracks" class="tab-panel">
+      <div class="section-header">
+        <div>
+          <h2>Configuración de las 8 Pistas Standalone &amp; Step Sequencer (SysEx 0x12 / 0x14)</h2>
+          <p>
+            Configura el canal MIDI, tipo de pista, división de tiempo, longitud de Gate, Swing, velocidad y
+            ruteo USB / MIDI DIN / CV para cada una de las 8 pistas del secuenciador por pasos del APC64.
+          </p>
+        </div>
+      </div>
+      <div id="tracks-container" class="tracks-grid"></div>
+    </section>
+
+    <!-- TAB 4: GLOBAL SETTINGS & CV/GATE -->
+    <section id="tab-global" class="tab-panel">
+      <div class="section-header">
+        <div>
+          <h2>Ajustes Globales del Dispositivo, Reloj MIDI &amp; 8 Salidas CV/Gate (SysEx 0x18 — 56 Bytes)</h2>
+          <p>
+            Edita la estructura global de 56 bytes (`0x600ba05c`) del APC64 y sincronízala por USB SysEx.
+          </p>
+        </div>
+        <button id="btn-send-global" class="btn btn-primary">Enviar Ajustes Globales al APC64 (SysEx 0x18)</button>
+      </div>
+
+      <div class="global-grid">
+        <div class="card">
+          <h3>Modo de Dispositivo, Reloj &amp; Sensibilidad</h3>
+          <div class="form-grid-2">
+            <div>
+              <label>Modo de Operación (Param 0x159):</label>
+              <select id="global-device-mode">
+                <option value="0">0 — Universal DAW (Bitwig / Reaper / Live)</option>
+                <option value="1">1 — Standalone (Secuenciador Interno)</option>
+              </select>
+            </div>
+            <div>
+              <label>Fuente de Sincronía Reloj (Param 0x15A):</label>
+              <select id="global-sync-source">
+                <option value="0">0 — Reloj Interno (Internal)</option>
+                <option value="1">1 — Reloj Externo (External USB/MIDI)</option>
+              </select>
+            </div>
+            <div>
+              <label>Brillo de LEDs RGB (1–100%):</label>
+              <input type="number" id="global-led-brightness" min="1" max="100" value="100" />
+            </div>
+            <div>
+              <label>Sensibilidad / Curva de Pads (0–7):</label>
+              <input type="number" id="global-pad-sensitivity" min="0" max="7" value="4" />
+            </div>
+          </div>
+          <div class="routing-row">
+            <label><input type="checkbox" id="global-sync-usb" checked /> Enviar MIDI Clock por USB (0x15B)</label>
+            <label><input type="checkbox" id="global-sync-midi" checked /> Enviar MIDI Clock por MIDI DIN (0x15C)</label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>8 Salidas CV / Gate (Fuentes &amp; Canales MIDI — Params 0x15D..0x16C)</h3>
+          <div id="global-cv-grid" class="cv-config-grid"></div>
+        </div>
+
+        <div class="card full-span">
+          <h3>16 Notas Globales de Drum Pads (Params 0x16D..0x17C)</h3>
+          <div id="global-drum-notes-grid" class="drum-notes-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: MULTI-PLATFORM FIRMWARE INSTALLER -->
+    <section id="tab-firmware" class="tab-panel">
+      <div class="section-header">
+        <div>
+          <h2>Instalador Multiplataforma de Custom Firmware (`FreeAPC64 1.2.1.6`) y Restauración Original</h2>
+          <p>
+            Flashea el firmware liberado o vuelve al firmware de fábrica (`1.2.1.6`) desde el navegador vía
+            <strong>WebMIDI USB</strong> o mediante el instalador multiplataforma (Linux, macOS y Windows).
+          </p>
+        </div>
+      </div>
+
+      <div class="firmware-cards-grid">
+        <!-- Custom Firmware Card -->
+        <div class="card fw-card fw-custom">
+          <div class="fw-badge">RECOMENDADO — UNIVERSAL DAW UNLOCK</div>
+          <h3>FreeAPC64 Custom Firmware v1.2.1.6</h3>
+          <p class="fw-file">Archivo: <code>firmware/freeapc64-custom-1.2.1.6.rbin</code> (450,060 bytes)</p>
+          <ul class="fw-features">
+            <li>Elimina el bloqueo <em>"Please connect to Ableton Live"</em> (`0x600b0bbe` / `0x600b1206`).</li>
+            <li>Habilita la vista <strong>Session</strong>, <strong>Mixer</strong> y <strong>Device</strong> en Bitwig Studio, Reaper y cualquier DAW.</li>
+            <li>Desbloquea los <strong>8 Touchstrip Faders (`0x600b1ac0`)</strong> para transmitir <strong>MIDI CC1/CC2 + Notas</strong> en todos los modos simultáneamente.</li>
+            <li>Desbloquea el cambio de página por <strong>SysEx `0x19` (`0x600bcfa6`)</strong> en todos los modos.</li>
+            <li>Checksums IEEE 802.3 CRC32 recalibrados (`Region 1 = 0x5d2108fc`, `Seg 1 = 0x9205d071`).</li>
+          </ul>
+          <div class="fw-actions">
+            <button id="btn-flash-custom-webmidi" class="btn btn-primary">
+              Instalar Custom Firmware (WebMIDI / Simulador)
+            </button>
+            <a href="/api/firmware/custom?download=1" class="btn btn-secondary">Descargar .rbin Custom</a>
+          </div>
+        </div>
+
+        <!-- Stock Firmware Card -->
+        <div class="card fw-card fw-stock">
+          <div class="fw-badge fw-badge-stock">RESPALDO OFICIAL DE FÁBRICA</div>
+          <h3>Akai Professional Stock Firmware v1.2.1.6</h3>
+          <p class="fw-file">Archivo: <code>firmware/akai-apc64-stock-1.2.1.6.rbin</code> (450,060 bytes)</p>
+          <ul class="fw-features">
+            <li>Imagen original exacta extraída del actualizador oficial de Akai (`Updater 1.0.7`).</li>
+            <li>Bootloader secundario `v1.2.0.7` (`0x6007d000`, CRC32 `0x1dbfe002`).</li>
+            <li> Aplicación de fábrica `v1.2.1.6` (`0x60095000`, CRC32 `0x7b044025`).</li>
+            <li>Permite regresar al estado 100% original de fábrica en cualquier momento con un solo clic.</li>
+          </ul>
+          <div class="fw-actions">
+            <button id="btn-flash-stock-webmidi" class="btn btn-warning">
+              Restaurar Firmware Original (Stock 1.2.1.6)
+            </button>
+            <a href="/api/firmware/stock?download=1" class="btn btn-secondary">Descargar .rbin Original</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress Bar & Console Log -->
+      <div class="card fw-console-card">
+        <div class="fw-progress-header">
+          <span id="fw-progress-label">Estado del Instalador: Listo para verificar o flashear</span>
+          <span id="fw-progress-pct">0%</span>
+        </div>
+        <div class="fw-progress-bar-bg">
+          <div id="fw-progress-bar-fill" class="fw-progress-bar-fill" style="width: 0%"></div>
+        </div>
+        <pre id="fw-console-log" class="fw-console-log">Selecciona "Instalar Custom Firmware" o "Restaurar Firmware Original" para iniciar el protocolo RBIN (F0 00 00 17 70/79/73 F7)...</pre>
+      </div>
+
+      <!-- Binary Patch Table -->
+      <div class="card">
+        <h3>Tabla Técnica de Parches Binarios ARM Cortex-M7 Thumb-2 Aplicados</h3>
+        <div class="table-wrap">
+          <table class="patch-table">
+            <thead>
+              <tr>
+                <th>Dirección Flash</th>
+                <th>ID del Parche</th>
+                <th>Bytes Originales</th>
+                <th>Bytes Parcheados</th>
+                <th>Descripción Técnica</th>
+              </tr>
+            </thead>
+            <tbody id="patch-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

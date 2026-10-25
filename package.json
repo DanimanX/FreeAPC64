@@ -1,0 +1,38 @@
+{
+  "name": "freeapc64",
+  "version": "0.0.1",
+  "description": "FreeAPC64 Custom Firmware (Universal DAW Unlock for Bitwig, Reaper, etc.), Multi-Platform Firmware Installer, and Web-based Project & Synth MIDI CC Parameter Editor for Akai Professional APC64",
+  "main": "src/server.js",
+  "bin": {
+    "freeapc64-editor": "./src/server.js",
+    "freeapc64-flash": "./scripts/install-firmware.js"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js",
+    "build:firmware": "python3 scripts/build-firmware.py",
+    "flash:custom": "node scripts/install-firmware.js --custom",
+    "flash:stock": "node scripts/install-firmware.js --stock",
+    "flash:dry-run": "node scripts/install-firmware.js --custom --dry-run",
+    "verify": "node scripts/install-firmware.js --verify && node src/test-suite.js",
+    "test": "node src/test-suite.js"
+  },
+  "keywords": [
+    "akai",
+    "apc64",
+    "custom-firmware",
+    "midi",
+    "sysex",
+    "webmidi",
+    "bitwig",
+    "reaper",
+    "synthesizer",
+    "midi-cc",
+    "project-editor"
+  ],
+  "author": "DanimanX",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

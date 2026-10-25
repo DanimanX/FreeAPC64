@@ -1,0 +1,1891 @@
+{
+  "id": "bitwig_studio",
+  "title": "Bitwig Studio — 8 Remote Controls + Isomorphic Grid",
+  "daw": "Bitwig Studio",
+  "description": "Configura los 8 Touchstrips para enviar CC 20–27 (y CC 28–35 en modo Dual) hacia las 8 páginas de Remote Controls de Bitwig, con grilla isométrica en 4tas con Poly Aftertouch.",
+  "project": {
+    "slot": 1,
+    "name": "Bitwig Studio Pro",
+    "tempo": 120,
+    "rootNote": 0,
+    "scale": 2,
+    "tracks": [
+      {
+        "index": 0,
+        "trackType": 1,
+        "midiChannel": 1,
+        "rootNote": 0,
+        "scale": 0,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "timeDivision": 4,
+        "gateLength": 50,
+        "swing": 50,
+        "velocity": 100,
+        "transpose": 0,
+        "octave": 3,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 1,
+        "trackType": 0,
+        "midiChannel": 2,
+        "rootNote": 0,
+        "scale": 0,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "timeDivision": 4,
+        "gateLength": 50,
+        "swing": 50,
+        "velocity": 100,
+        "transpose": 0,
+        "octave": 3,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 2,
+        "trackType": 0,
+        "midiChannel": 3,
+        "rootNote": 0,
+        "scale": 0,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "timeDivision": 4,
+        "gateLength": 50,
+        "swing": 50,
+        "velocity": 100,
+        "transpose": 0,
+        "octave": 3,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 3,
+        "trackType": 0,
+        "midiChannel": 4,
+        "rootNote": 0,
+        "scale": 0,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "timeDivision": 4,
+        "gateLength": 50,
+        "swing": 50,
+        "velocity": 100,
+        "transpose": 0,
+        "octave": 3,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 4,
+        "trackType": 0,
+        "midiChannel": 5,
+        "rootNote": 0,
+        "scale": 0,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "timeDivision": 4,
+        "gateLength": 50,
+        "swing": 50,
+        "velocity": 100,
+        "transpose": 0,
+        "octave": 3,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 5,
+        "trackType": 0,
+        "midiChannel": 6,
+        "rootNote": 0,
+        "scale": 0,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "timeDivision": 4,
+        "gateLength": 50,
+        "swing": 50,
+        "velocity": 100,
+        "transpose": 0,
+        "octave": 3,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 6,
+        "trackType": 0,
+        "midiChannel": 7,
+        "rootNote": 0,
+        "scale": 0,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "timeDivision": 4,
+        "gateLength": 50,
+        "swing": 50,
+        "velocity": 100,
+        "transpose": 0,
+        "octave": 3,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 7,
+        "trackType": 0,
+        "midiChannel": 8,
+        "rootNote": 0,
+        "scale": 0,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "timeDivision": 4,
+        "gateLength": 50,
+        "swing": 50,
+        "velocity": 100,
+        "transpose": 0,
+        "octave": 3,
+        "sendPolyAftertouch": true
+      }
+    ],
+    "pads": [
+      {
+        "index": 0,
+        "row": 0,
+        "col": 0,
+        "note": 0,
+        "octave": 2,
+        "midiNote": 24,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 100,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 13,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 1,
+        "row": 0,
+        "col": 1,
+        "note": 2,
+        "octave": 2,
+        "midiNote": 26,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 2,
+        "row": 0,
+        "col": 2,
+        "note": 3,
+        "octave": 2,
+        "midiNote": 27,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 3,
+        "row": 0,
+        "col": 3,
+        "note": 5,
+        "octave": 2,
+        "midiNote": 29,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 4,
+        "row": 0,
+        "col": 4,
+        "note": 7,
+        "octave": 2,
+        "midiNote": 31,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 200,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 8,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 5,
+        "row": 0,
+        "col": 5,
+        "note": 8,
+        "octave": 2,
+        "midiNote": 32,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 6,
+        "row": 0,
+        "col": 6,
+        "note": 10,
+        "octave": 2,
+        "midiNote": 34,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 7,
+        "row": 0,
+        "col": 7,
+        "note": 0,
+        "octave": 3,
+        "midiNote": 36,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 100,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 13,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 8,
+        "row": 1,
+        "col": 0,
+        "note": 8,
+        "octave": 2,
+        "midiNote": 32,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 9,
+        "row": 1,
+        "col": 1,
+        "note": 10,
+        "octave": 2,
+        "midiNote": 34,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 10,
+        "row": 1,
+        "col": 2,
+        "note": 0,
+        "octave": 3,
+        "midiNote": 36,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 100,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 13,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 11,
+        "row": 1,
+        "col": 3,
+        "note": 2,
+        "octave": 3,
+        "midiNote": 38,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 12,
+        "row": 1,
+        "col": 4,
+        "note": 3,
+        "octave": 3,
+        "midiNote": 39,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 13,
+        "row": 1,
+        "col": 5,
+        "note": 5,
+        "octave": 3,
+        "midiNote": 41,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 14,
+        "row": 1,
+        "col": 6,
+        "note": 7,
+        "octave": 3,
+        "midiNote": 43,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 200,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 8,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 15,
+        "row": 1,
+        "col": 7,
+        "note": 8,
+        "octave": 3,
+        "midiNote": 44,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 16,
+        "row": 2,
+        "col": 0,
+        "note": 5,
+        "octave": 3,
+        "midiNote": 41,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 17,
+        "row": 2,
+        "col": 1,
+        "note": 7,
+        "octave": 3,
+        "midiNote": 43,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 200,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 8,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 18,
+        "row": 2,
+        "col": 2,
+        "note": 8,
+        "octave": 3,
+        "midiNote": 44,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 19,
+        "row": 2,
+        "col": 3,
+        "note": 10,
+        "octave": 3,
+        "midiNote": 46,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 20,
+        "row": 2,
+        "col": 4,
+        "note": 0,
+        "octave": 4,
+        "midiNote": 48,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 100,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 13,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 21,
+        "row": 2,
+        "col": 5,
+        "note": 2,
+        "octave": 4,
+        "midiNote": 50,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 22,
+        "row": 2,
+        "col": 6,
+        "note": 3,
+        "octave": 4,
+        "midiNote": 51,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 23,
+        "row": 2,
+        "col": 7,
+        "note": 5,
+        "octave": 4,
+        "midiNote": 53,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 24,
+        "row": 3,
+        "col": 0,
+        "note": 2,
+        "octave": 4,
+        "midiNote": 50,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 25,
+        "row": 3,
+        "col": 1,
+        "note": 3,
+        "octave": 4,
+        "midiNote": 51,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 26,
+        "row": 3,
+        "col": 2,
+        "note": 5,
+        "octave": 4,
+        "midiNote": 53,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 27,
+        "row": 3,
+        "col": 3,
+        "note": 7,
+        "octave": 4,
+        "midiNote": 55,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 200,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 8,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 28,
+        "row": 3,
+        "col": 4,
+        "note": 8,
+        "octave": 4,
+        "midiNote": 56,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 29,
+        "row": 3,
+        "col": 5,
+        "note": 10,
+        "octave": 4,
+        "midiNote": 58,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 30,
+        "row": 3,
+        "col": 6,
+        "note": 0,
+        "octave": 5,
+        "midiNote": 60,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 100,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 13,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 31,
+        "row": 3,
+        "col": 7,
+        "note": 2,
+        "octave": 5,
+        "midiNote": 62,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 32,
+        "row": 4,
+        "col": 0,
+        "note": 10,
+        "octave": 4,
+        "midiNote": 58,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 33,
+        "row": 4,
+        "col": 1,
+        "note": 0,
+        "octave": 5,
+        "midiNote": 60,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 100,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 13,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 34,
+        "row": 4,
+        "col": 2,
+        "note": 2,
+        "octave": 5,
+        "midiNote": 62,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 35,
+        "row": 4,
+        "col": 3,
+        "note": 3,
+        "octave": 5,
+        "midiNote": 63,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 36,
+        "row": 4,
+        "col": 4,
+        "note": 5,
+        "octave": 5,
+        "midiNote": 65,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 37,
+        "row": 4,
+        "col": 5,
+        "note": 7,
+        "octave": 5,
+        "midiNote": 67,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 200,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 8,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 38,
+        "row": 4,
+        "col": 6,
+        "note": 8,
+        "octave": 5,
+        "midiNote": 68,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 39,
+        "row": 4,
+        "col": 7,
+        "note": 10,
+        "octave": 5,
+        "midiNote": 70,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 40,
+        "row": 5,
+        "col": 0,
+        "note": 7,
+        "octave": 5,
+        "midiNote": 67,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 200,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 8,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 41,
+        "row": 5,
+        "col": 1,
+        "note": 8,
+        "octave": 5,
+        "midiNote": 68,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 42,
+        "row": 5,
+        "col": 2,
+        "note": 10,
+        "octave": 5,
+        "midiNote": 70,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 43,
+        "row": 5,
+        "col": 3,
+        "note": 0,
+        "octave": 6,
+        "midiNote": 72,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 100,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 13,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 44,
+        "row": 5,
+        "col": 4,
+        "note": 2,
+        "octave": 6,
+        "midiNote": 74,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 45,
+        "row": 5,
+        "col": 5,
+        "note": 3,
+        "octave": 6,
+        "midiNote": 75,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 46,
+        "row": 5,
+        "col": 6,
+        "note": 5,
+        "octave": 6,
+        "midiNote": 77,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 47,
+        "row": 5,
+        "col": 7,
+        "note": 7,
+        "octave": 6,
+        "midiNote": 79,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 200,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 8,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 48,
+        "row": 6,
+        "col": 0,
+        "note": 3,
+        "octave": 6,
+        "midiNote": 75,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 49,
+        "row": 6,
+        "col": 1,
+        "note": 5,
+        "octave": 6,
+        "midiNote": 77,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 50,
+        "row": 6,
+        "col": 2,
+        "note": 7,
+        "octave": 6,
+        "midiNote": 79,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 200,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 8,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 51,
+        "row": 6,
+        "col": 3,
+        "note": 8,
+        "octave": 6,
+        "midiNote": 80,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 52,
+        "row": 6,
+        "col": 4,
+        "note": 10,
+        "octave": 6,
+        "midiNote": 82,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 53,
+        "row": 6,
+        "col": 5,
+        "note": 0,
+        "octave": 7,
+        "midiNote": 84,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 100,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 13,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 54,
+        "row": 6,
+        "col": 6,
+        "note": 2,
+        "octave": 7,
+        "midiNote": 86,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 55,
+        "row": 6,
+        "col": 7,
+        "note": 3,
+        "octave": 7,
+        "midiNote": 87,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 56,
+        "row": 7,
+        "col": 0,
+        "note": 0,
+        "octave": 7,
+        "midiNote": 84,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 100,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 13,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 57,
+        "row": 7,
+        "col": 1,
+        "note": 2,
+        "octave": 7,
+        "midiNote": 86,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 58,
+        "row": 7,
+        "col": 2,
+        "note": 3,
+        "octave": 7,
+        "midiNote": 87,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 59,
+        "row": 7,
+        "col": 3,
+        "note": 5,
+        "octave": 7,
+        "midiNote": 89,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 60,
+        "row": 7,
+        "col": 4,
+        "note": 7,
+        "octave": 7,
+        "midiNote": 91,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 200,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 8,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 61,
+        "row": 7,
+        "col": 5,
+        "note": 8,
+        "octave": 7,
+        "midiNote": 92,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 62,
+        "row": 7,
+        "col": 6,
+        "note": 10,
+        "octave": 7,
+        "midiNote": 94,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 50,
+          "g": 25,
+          "b": 5
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 10,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      },
+      {
+        "index": 63,
+        "row": 7,
+        "col": 7,
+        "note": 0,
+        "octave": 8,
+        "midiNote": 96,
+        "midiChannel": 1,
+        "offColor": {
+          "r": 255,
+          "g": 100,
+          "b": 0
+        },
+        "onColor": {
+          "r": 0,
+          "g": 255,
+          "b": 140
+        },
+        "colorPreset": 13,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "sendPolyAftertouch": true
+      }
+    ],
+    "faders": [
+      {
+        "index": 0,
+        "label": "BW Remote 1 (Cutoff)",
+        "ccMode": 2,
+        "cc1": 20,
+        "cc2": 28,
+        "faderNote": 12,
+        "faderOctave": 3,
+        "midiChannel": 1,
+        "faderColor": {
+          "r": 255,
+          "g": 90,
+          "b": 0
+        },
+        "tipColor": {
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "style": 0,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "value": 64
+      },
+      {
+        "index": 1,
+        "label": "BW Remote 2 (Reso)",
+        "ccMode": 2,
+        "cc1": 21,
+        "cc2": 29,
+        "faderNote": 12,
+        "faderOctave": 3,
+        "midiChannel": 1,
+        "faderColor": {
+          "r": 255,
+          "g": 140,
+          "b": 0
+        },
+        "tipColor": {
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "style": 0,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "value": 64
+      },
+      {
+        "index": 2,
+        "label": "BW Remote 3 (Env Mod)",
+        "ccMode": 2,
+        "cc1": 22,
+        "cc2": 30,
+        "faderNote": 12,
+        "faderOctave": 3,
+        "midiChannel": 1,
+        "faderColor": {
+          "r": 255,
+          "g": 210,
+          "b": 0
+        },
+        "tipColor": {
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "style": 0,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "value": 64
+      },
+      {
+        "index": 3,
+        "label": "BW Remote 4 (Decay)",
+        "ccMode": 2,
+        "cc1": 23,
+        "cc2": 31,
+        "faderNote": 12,
+        "faderOctave": 3,
+        "midiChannel": 1,
+        "faderColor": {
+          "r": 130,
+          "g": 255,
+          "b": 0
+        },
+        "tipColor": {
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "style": 0,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "value": 64
+      },
+      {
+        "index": 4,
+        "label": "BW Remote 5 (Drive)",
+        "ccMode": 2,
+        "cc1": 24,
+        "cc2": 32,
+        "faderNote": 12,
+        "faderOctave": 3,
+        "midiChannel": 1,
+        "faderColor": {
+          "r": 0,
+          "g": 240,
+          "b": 140
+        },
+        "tipColor": {
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "style": 0,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "value": 64
+      },
+      {
+        "index": 5,
+        "label": "BW Remote 6 (Chorus)",
+        "ccMode": 2,
+        "cc1": 25,
+        "cc2": 33,
+        "faderNote": 12,
+        "faderOctave": 3,
+        "midiChannel": 1,
+        "faderColor": {
+          "r": 0,
+          "g": 180,
+          "b": 255
+        },
+        "tipColor": {
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "style": 0,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "value": 64
+      },
+      {
+        "index": 6,
+        "label": "BW Remote 7 (Delay)",
+        "ccMode": 2,
+        "cc1": 26,
+        "cc2": 34,
+        "faderNote": 12,
+        "faderOctave": 3,
+        "midiChannel": 1,
+        "faderColor": {
+          "r": 130,
+          "g": 60,
+          "b": 255
+        },
+        "tipColor": {
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "style": 0,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "value": 64
+      },
+      {
+        "index": 7,
+        "label": "BW Remote 8 (Reverb)",
+        "ccMode": 2,
+        "cc1": 27,
+        "cc2": 35,
+        "faderNote": 12,
+        "faderOctave": 3,
+        "midiChannel": 1,
+        "faderColor": {
+          "r": 255,
+          "g": 0,
+          "b": 180
+        },
+        "tipColor": {
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "style": 0,
+        "sendToUsb": true,
+        "sendToMidi": true,
+        "sendToCv": false,
+        "value": 64
+      }
+    ]
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "project": "FreeAPC64",
+  "version": "0.0.1",
+  "base_firmware_version": "1.2.1.6",
+  "bootloader_version": "1.2.0.7",
+  "peripheral_id": "0x09e80053",
+  "usb_vid": "0x09e8",
+  "usb_pid": "0x0053",
+  "stock_firmware": {
+    "filename": "akai-apc64-stock-1.2.1.6.rbin",
+    "size": 450060,
+    "sha256": "8df99a70bd4de25146f2543e4b94704de707db02d2783ce9333720c7fa0dda2b",
+    "region0_crc32": "0x1dbfe002",
+    "region1_crc32": "0x7b044025",
+    "region1_seg0_crc32": "0x6cefa87a",
+    "region1_seg1_crc32": "0xb42098a8"
+  },
+  "custom_firmware": {
+    "filename": "freeapc64-custom-1.2.1.6.rbin",
+    "size": 450060,
+    "sha256": "9b9e45713985e0ac31bed952b032b42e9992c1b640980419d3c36a3a8c4b7f97",
+    "region0_crc32": "0x1dbfe002",
+    "region1_crc32": "0x5d2108fc",
+    "region1_seg0_crc32": "0x6cefa87a",
+    "region1_seg1_crc32": "0x9205d071"
+  },
+  "patches": [
+    {
+      "id": "unlock_session_view_popup",
+      "name": "Bypass 'Please connect to Ableton Live' Popup Lockout in UI::switchPage",
+      "flash_addr": "0x600b0bbe",
+      "file_offset": "0x02c98a",
+      "length": 6,
+      "orig_hex": "04f5df454c35",
+      "patch_hex": "00bf00bf00bf",
+      "description": "Prevents UI::switchPage (0x600b0b86) from redirecting CPageSession (r4+0x468) to CPageLivePopUp (r4+0x6fcc) when Ableton Live's proprietary SysEx 0x1B handshake has not been received. Unlocks Session grid pads, scene launch, and track buttons in any DAW."
+    },
+    {
+      "id": "disable_live_disconnect_redirect",
+      "name": "Disable Param 0xC8 (isLiveDisconnected) Forced Redirect to CPageLivePopUp",
+      "flash_addr": "0x600b1206",
+      "file_offset": "0x02cfd2",
+      "length": 4,
+      "orig_hex": "fff7befc",
+      "patch_hex": "00bf00bf",
+      "description": "Prevents parameter 0xC8 handler (0x600b11de) from forcing a page switch to CPageLivePopUp when operating in Bitwig, Reaper, or other DAWs."
+    },
+    {
+      "id": "redirect_page_index_5_to_session",
+      "name": "Redirect Mode Index 5 (LivePopUp) to CPageSession in UI::switchPageByIndex",
+      "flash_addr": "0x600b10c0",
+      "file_offset": "0x02ce8c",
+      "length": 8,
+      "orig_hex": "00f5df4100224c31",
+      "patch_hex": "002200f58d6100bf",
+      "description": "Rewrites case 5 in UI::switchPageByIndex (0x600b107e) to target CPageSession (r0+0x468) instead of CPageLivePopUp (r0+0x6fcc)."
+    },
+    {
+      "id": "unlock_device_page_standalone",
+      "name": "Unlock Device Control Page (CPageDevice) in Standalone/Custom Mode",
+      "flash_addr": "0x600b0b94",
+      "file_offset": "0x02c960",
+      "length": 2,
+      "orig_hex": "6bd0",
+      "patch_hex": "00bf",
+      "description": "Allows entering Device Control page (r0+0x200) regardless of Standalone/DAW mode."
+    },
+    {
+      "id": "unlock_mixer_page_standalone",
+      "name": "Unlock Mixer Page (CPageMixer) in Standalone/Custom Mode",
+      "flash_addr": "0x600b0b9c",
+      "file_offset": "0x02c968",
+      "length": 2,
+      "orig_hex": "67d0",
+      "patch_hex": "00bf",
+      "description": "Allows entering Mixer page (r0+0x334) regardless of Standalone/DAW mode."
+    },
+    {
+      "id": "unlock_fader_midi_cc_all_modes",
+      "name": "Enable Touchstrip Faders to Transmit MIDI CC1/CC2 & Notes in All Modes",
+      "flash_addr": "0x600b1ac0",
+      "file_offset": "0x02d88c",
+      "length": 44,
+      "orig_hex": "70b9f26f0d4b9a420ad02946204601f0c7f92946e0b202b0bde8704003f0a4bb2a4621460548fbf78bfff2e7",
+      "patch_hex": "38b9f26f0d4b9a4203d02946204601f0c7f92a4621460948fbf792ff2946e0b202b0bde8704003f09fbb00bf",
+      "description": "Restructures the Touchstrip Fader handler (0x600b1a80) so that in DAW/Session/Mixer/Device modes it calls BOTH 0x600b2e60 (DAW fader port 0) AND 0x600ada00 (Custom MIDI CC1/CC2 + Fader Note on USB Custom port 3, DIN MIDI, and CV). Allows instant MIDI CC learn in Bitwig, Reaper, or any VST synth in every mode."
+    },
+    {
+      "id": "unlock_sysex_mode_switch",
+      "name": "Allow SysEx 0x19 (Set Active UI Page) in Both DAW and Standalone Modes",
+      "flash_addr": "0x600bcfa6",
+      "file_offset": "0x038d72",
+      "length": 4,
+      "orig_hex": "3ff4ddad",
+      "patch_hex": "00bf00bf",
+      "description": "Removes the Device Mode == Standalone guard on SysEx message 0x19 (0x600bcfa0) so the Web Project Editor and external DAW scripts can switch hardware pages at any time."
+    },
+    {
+      "id": "oled_label_universal_daw",
+      "name": "Update Global Settings Device Mode OLED Label to 'Universal DAW'",
+      "flash_addr": "0x600e90bc",
+      "file_offset": "0x064e88",
+      "length": 16,
+      "orig_hex": "41626c65746f6e204c69766500000000",
+      "patch_hex": "556e6976657273616c20444157000000",
+      "description": "Replaces 'Ableton Live' with 'Universal DAW' in the hardware OLED Global Settings menu."
+    },
+    {
+      "id": "oled_banner_freeapc64",
+      "name": "Update OLED Banner Strings to FreeAPC64 Universal DAW",
+      "flash_addr": "0x600d8abe",
+      "file_offset": "0x05488a",
+      "length": 31,
+      "orig_hex": "506c6561736520636f6e6e65637400746f2041626c65746f6e204c69766500",
+      "patch_hex": "4672656541504336342076302e3100556e6976657273616c20444157000000",
+      "description": "Updates the OLED status strings to identify FreeAPC64 v0.1 Universal DAW firmware."
+    }
+  ]
+}
